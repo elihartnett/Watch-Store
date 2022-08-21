@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "ML813_VW_PF+watch-45-stainless-graphite-cell-7s_VW_PF_WF_CO.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "ML813_VW_PF+watch-45-stainless-graphite-cell-7s_VW_PF_WF_CO@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "ML813_VW_PF+watch-45-stainless-graphite-cell-7s_VW_PF_WF_CO@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
