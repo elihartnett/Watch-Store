@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Watch {
+struct Watch: Identifiable {
+    let id = UUID()
     let watchCase: WatchCase
     let image: String
     let bandType: WatchBandType

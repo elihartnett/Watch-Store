@@ -21,3 +21,8 @@ enum WatchBandType: String {
     case stainlessSteel
     case nike
 }
+
+enum ViewType {
+    case list
+    case grid
+}
