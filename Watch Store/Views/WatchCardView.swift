@@ -15,16 +15,13 @@ struct WatchCardView: View {
         
         ViewThatFits {
             
-            HStack (alignment: .bottom) {
-                WatchCardListView(watch: watch)
-            }
-            .frame(height: 239)
-            .frame(maxWidth: .infinity)
+            WatchCardListView(watch: watch)
+                .frame(height: 239)
+                .frame(maxWidth: .infinity)
             
-            VStack {
-                WatchCardGridView(watch: watch)
-            }
-            .frame(height: 290)
+            
+            WatchCardGridView(watch: watch)
+                .frame(height: 290)
         }
         .background {
             Rectangle()
@@ -46,48 +43,51 @@ struct WatchCardListView: View {
     
     var body: some View {
         
-        VStack (spacing: 23) {
-            Image(watch.image)
-                .resizable()
-                .frame(width: 129, height: 214)
+        HStack {
             
-            WatchBandOptionsView(watch: watch)
-        }
-        .padding(.leading)
-        .offset(y: -20)
-        
-        Spacer()
-        
-        VStack (alignment: .trailing) {
-            Image(systemName: watch.isFavorite ? "heart" : "heart.fill")
-                .onTapGesture {
-                    watch.isFavorite.toggle()
-                }
-            
-            Text("$") + Text("399")
-                .fontWeight(.heavy)
-            
-            WatchTitleView(watch: watch)
-                .fontWeight(.bold)
-            
-            WatchBandTitleView(watch: watch)
+            VStack (spacing: 23) {
+                Image(watch.image)
+                    .resizable()
+                    .frame(width: 129, height: 214)
+                
+                WatchBandOptionsView(watch: watch)
+            }
+            .padding(.leading)
+            .offset(y: -20)
             
             Spacer()
             
-            Button {
-#warning("Add to bag")
-            } label:{
-                Color(Constants.Color.addToBag)
-                    .frame(width: 152, height: 45)
-                    .cornerRadius(10)
-                    .overlay {
-                        Text("Add to cart")
-                            .foregroundColor(.white)
+            VStack (alignment: .trailing) {
+                Image(systemName: watch.isFavorite ? "heart" : "heart.fill")
+                    .onTapGesture {
+                        watch.isFavorite.toggle()
                     }
+                
+                Text("$") + Text("399")
+                    .fontWeight(.heavy)
+                
+                WatchTitleView(watch: watch)
+                    .fontWeight(.bold)
+                
+                WatchBandTitleView(watch: watch)
+                
+                Spacer()
+                
+                Button {
+    #warning("Add to bag")
+                } label:{
+                    Color(Constants.Color.addToBag)
+                        .frame(width: 152, height: 45)
+                        .cornerRadius(10)
+                        .overlay {
+                            Text("Add to cart")
+                                .foregroundColor(.white)
+                        }
+                }
             }
+            .padding(.trailing)
+            .offset(y: -20)
         }
-        .padding(.trailing)
-        .offset(y: -20)
     }
 }
 
@@ -114,7 +114,7 @@ struct WatchCardGridView: View {
             
             
             Button {
-                #warning("Add to bag")
+#warning("Add to bag")
             } label:{
                 Color(Constants.Color.addToBag)
                     .frame(width: 152, height: 45)

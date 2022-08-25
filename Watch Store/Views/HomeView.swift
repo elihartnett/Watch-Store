@@ -38,11 +38,29 @@ struct HomeView: View {
             Text("Discover")
                 .fontWeight(.bold)
                          
-            
-                ForEach(watches) { watch in
-                    WatchCardView(watch: watch)
-                        .frame(maxWidth: viewType == .list ? .infinity : UIScreen.main.bounds.width / 3)
+            if viewType == .list {
+                
+                VStack {
+                    
+                    ForEach(watches) { watch in
+                        
+                        WatchCardView(watch: watch)
+                            .frame(maxWidth: viewType == .list ? .infinity : UIScreen.main.bounds.width / 3)
+                    }
                 }
+            }
+            
+            if viewType == .grid {
+                
+                HStack {
+                    
+                    ForEach(watches) { watch in
+                        
+                        WatchCardView(watch: watch)
+                            .frame(maxWidth: viewType == .list ? .infinity : UIScreen.main.bounds.width / 3)
+                    }
+                }
+            }
         }
     }
 }
