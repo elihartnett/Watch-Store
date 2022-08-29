@@ -10,62 +10,59 @@ import SwiftUI
 struct HomeView: View {
     
     @State var viewType: ViewType = .list
-    let watches = [Watch(watchCase: .starlightAluminum, image: Constants.Image.Watch.placeHolder1, bandType: .braided), Watch(watchCase: .midnightAluminum, image: Constants.Image.Watch.placeHolder2, bandType: .solo)]
+    let watches = [Watch(caseType: .starlightAluminum, bandType: .braided, image: Constants.Image.Watch.placeHolder1, price: 399), Watch(caseType: .midnightAluminum, bandType: .solo, image: Constants.Image.Watch.placeHolder2, price: 399), Watch(caseType: .midnightAluminum, bandType: .nike, image: Constants.Image.Watch.placeHolder3, price: 399), Watch(caseType: .redAluminum, bandType: .sport, image: Constants.Image.Watch.placeHolder4, price: 399), Watch(caseType: .midnightAluminum, bandType: .leather, image: Constants.Image.Watch.placeHolder5, price: 399), Watch(caseType: .midnightAluminum, bandType: .stainlessSteel, image: Constants.Image.Watch.placeHolder6, price: 399)]
     
     var body: some View {
         
-        VStack(alignment: .leading) {
+        NavigationView {
             
-            HStack {
+            ScrollView {
                 
-                Image(systemName: "bag")
-                
-                Spacer()
-                
-                Image(systemName: viewType == .list ? "rectangle.grid.1x2.fill" : "square.grid.2x2.fill")
-                    .onTapGesture {
-                        withAnimation {
-                            if viewType == .list {
-                                viewType = .grid
-                            }
-                            else {
-                                viewType = .list
+                VStack(alignment: .leading) {
+                    
+                    switch viewType {
+                        
+                    case .list:
+                        ForEach(watches) { watch in
+                            WatchCardListView(watch: watch)
+                                .padding()
+                        }
+                    case .grid:
+                        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
+                            ForEach(watches) { watch in
+                                WatchCardGridView(watch: watch)
+                                    .padding()
                             }
                         }
                     }
-            }
-            
-            Text("Discover")
-                .fontWeight(.bold)
-                         
-            if viewType == .list {
-                
-                VStack {
                     
-                    ForEach(watches) { watch in
-                        
-                        WatchCardView(watch: watch)
-                            .frame(maxWidth: viewType == .list ? .infinity : UIScreen.main.bounds.width / 3)
-                    }
                 }
             }
-            
-            if viewType == .grid {
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Image(systemName: viewType == .list ? "rectangle.grid.1x2.fill" : "square.grid.2x2.fill")
+                        .onTapGesture {
+                            withAnimation {
+                                if viewType == .list {
+                                    viewType = .grid
+                                }
+                                else {
+                                    viewType = .list
+                                }
+                            }
+                        }
+                }
                 
-                HStack {
-                    
-                    ForEach(watches) { watch in
-                        
-                        WatchCardView(watch: watch)
-                            .frame(maxWidth: viewType == .list ? .infinity : UIScreen.main.bounds.width / 3)
-                    }
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Image(systemName: "bag")
                 }
             }
+            .navigationTitle("Discover")
         }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
     }

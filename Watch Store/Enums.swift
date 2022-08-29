@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum WatchCase: String {
+enum WatchCaseType: String {
     case starlightAluminum
     case midnightAluminum
     case redAluminum
