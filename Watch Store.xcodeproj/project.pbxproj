@@ -7,10 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		622BFF7728BDB78D00C562DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 622BFF7628BDB78D00C562DB /* LaunchScreen.storyboard */; };
+		622BFF7928BDB8BF00C562DB /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 622BFF7828BDB8BF00C562DB /* logo.png */; };
+		622BFF7B28BDB8C500C562DB /* logoAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 622BFF7A28BDB8C500C562DB /* logoAnimation.json */; };
+		622BFF7E28BDB8DA00C562DB /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622BFF7D28BDB8DA00C562DB /* LottieView.swift */; };
+		622BFF8128BDB91C00C562DB /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 622BFF8028BDB91C00C562DB /* Lottie */; };
 		625ADFDB28B2867400756BB1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625ADFDA28B2867400756BB1 /* Constants.swift */; };
 		625ADFE228B28B4B00756BB1 /* Watch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625ADFE128B28B4B00756BB1 /* Watch.swift */; };
 		625ADFE528B28BDC00756BB1 /* PreviewProvider+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625ADFE428B28BDC00756BB1 /* PreviewProvider+Ext.swift */; };
 		625ADFE728B28C8500756BB1 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625ADFE628B28C8500756BB1 /* Enums.swift */; };
+		628F839B28BCEE7600D88AB4 /* WatchCardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628F839A28BCEE7600D88AB4 /* WatchCardDetailView.swift */; };
+		628F839D28BCEF3400D88AB4 /* GradientBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628F839C28BCEF3400D88AB4 /* GradientBackgroundView.swift */; };
 		62B155F628BBD09B00CABE17 /* WatchCardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B155F528BBD09B00CABE17 /* WatchCardListView.swift */; };
 		62B155FA28BBD0F200CABE17 /* WatchCardGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B155F928BBD0F200CABE17 /* WatchCardGridView.swift */; };
 		62B155FC28BBD10A00CABE17 /* WatchBandOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B155FB28BBD10A00CABE17 /* WatchBandOptionsView.swift */; };
@@ -26,10 +33,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		622BFF7628BDB78D00C562DB /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		622BFF7828BDB8BF00C562DB /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		622BFF7A28BDB8C500C562DB /* logoAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = logoAnimation.json; sourceTree = "<group>"; };
+		622BFF7D28BDB8DA00C562DB /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		625ADFDA28B2867400756BB1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		625ADFE128B28B4B00756BB1 /* Watch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch.swift; sourceTree = "<group>"; };
 		625ADFE428B28BDC00756BB1 /* PreviewProvider+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreviewProvider+Ext.swift"; sourceTree = "<group>"; };
 		625ADFE628B28C8500756BB1 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		628F839A28BCEE7600D88AB4 /* WatchCardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchCardDetailView.swift; sourceTree = "<group>"; };
+		628F839C28BCEF3400D88AB4 /* GradientBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackgroundView.swift; sourceTree = "<group>"; };
 		62B155F528BBD09B00CABE17 /* WatchCardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchCardListView.swift; sourceTree = "<group>"; };
 		62B155F928BBD0F200CABE17 /* WatchCardGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchCardGridView.swift; sourceTree = "<group>"; };
 		62B155FB28BBD10A00CABE17 /* WatchBandOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBandOptionsView.swift; sourceTree = "<group>"; };
@@ -50,12 +63,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				622BFF8128BDB91C00C562DB /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		622BFF7C28BDB8CA00C562DB /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				622BFF7828BDB8BF00C562DB /* logo.png */,
+				622BFF7A28BDB8C500C562DB /* logoAnimation.json */,
+				622BFF7D28BDB8DA00C562DB /* LottieView.swift */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
 		625ADFDC28B2888600756BB1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -74,8 +98,10 @@
 		625ADFDE28B2889700756BB1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				622BFF7628BDB78D00C562DB /* LaunchScreen.storyboard */,
 				62DA87CC28B19B82002B4278 /* HomeView.swift */,
 				62B155F428BBD08200CABE17 /* Watch Card */,
+				628F839628BCEDBC00D88AB4 /* WatchCardDetailView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -86,6 +112,24 @@
 				625ADFE428B28BDC00756BB1 /* PreviewProvider+Ext.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		628F839628BCEDBC00D88AB4 /* WatchCardDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				628F839A28BCEE7600D88AB4 /* WatchCardDetailView.swift */,
+			);
+			path = WatchCardDetailView;
+			sourceTree = "<group>";
+		};
+		628F839728BCEDF000D88AB4 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				622BFF7C28BDB8CA00C562DB /* Lottie */,
+				625ADFE628B28C8500756BB1 /* Enums.swift */,
+				625ADFDA28B2867400756BB1 /* Constants.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		62B155F428BBD08200CABE17 /* Watch Card */ = {
@@ -99,6 +143,7 @@
 				62B1560128BC33C800CABE17 /* WatchTitleView.swift */,
 				62B1560328BC33D100CABE17 /* WatchBandTitleView.swift */,
 				62B1560528BC33DB00CABE17 /* AddToBagView.swift */,
+				628F839C28BCEF3400D88AB4 /* GradientBackgroundView.swift */,
 			);
 			path = "Watch Card";
 			sourceTree = "<group>";
@@ -126,9 +171,8 @@
 				625ADFDE28B2889700756BB1 /* Views */,
 				625ADFDD28B2889200756BB1 /* View Models */,
 				625ADFDC28B2888600756BB1 /* Models */,
+				628F839728BCEDF000D88AB4 /* Helpers */,
 				625ADFE328B28BC600756BB1 /* Extensions */,
-				625ADFE628B28C8500756BB1 /* Enums.swift */,
-				625ADFDA28B2867400756BB1 /* Constants.swift */,
 				62DA87CE28B19B83002B4278 /* Assets.xcassets */,
 				62DA87D028B19B83002B4278 /* Preview Content */,
 			);
@@ -159,6 +203,9 @@
 			dependencies = (
 			);
 			name = "Watch Store";
+			packageProductDependencies = (
+				622BFF8028BDB91C00C562DB /* Lottie */,
+			);
 			productName = "Watch Store";
 			productReference = 62DA87C728B19B82002B4278 /* Watch Store.app */;
 			productType = "com.apple.product-type.application";
@@ -187,6 +234,9 @@
 				Base,
 			);
 			mainGroup = 62DA87BE28B19B82002B4278;
+			packageReferences = (
+				622BFF7F28BDB91C00C562DB /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = 62DA87C828B19B82002B4278 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -201,6 +251,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				622BFF7928BDB8BF00C562DB /* logo.png in Resources */,
+				622BFF7B28BDB8C500C562DB /* logoAnimation.json in Resources */,
+				622BFF7728BDB78D00C562DB /* LaunchScreen.storyboard in Resources */,
 				62DA87D228B19B83002B4278 /* Preview Assets.xcassets in Resources */,
 				62DA87CF28B19B83002B4278 /* Assets.xcassets in Resources */,
 			);
@@ -213,6 +266,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				628F839D28BCEF3400D88AB4 /* GradientBackgroundView.swift in Sources */,
+				622BFF7E28BDB8DA00C562DB /* LottieView.swift in Sources */,
 				62DA87CD28B19B82002B4278 /* HomeView.swift in Sources */,
 				625ADFE528B28BDC00756BB1 /* PreviewProvider+Ext.swift in Sources */,
 				62B1560428BC33D100CABE17 /* WatchBandTitleView.swift in Sources */,
@@ -225,6 +280,7 @@
 				62DA87CB28B19B82002B4278 /* Watch_StoreApp.swift in Sources */,
 				62B1560628BC33DB00CABE17 /* AddToBagView.swift in Sources */,
 				625ADFDB28B2867400756BB1 /* Constants.swift in Sources */,
+				628F839B28BCEE7600D88AB4 /* WatchCardDetailView.swift in Sources */,
 				625ADFE728B28C8500756BB1 /* Enums.swift in Sources */,
 				625ADFE228B28B4B00756BB1 /* Watch.swift in Sources */,
 			);
@@ -350,7 +406,6 @@
 		62DA87D628B19B83002B4278 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -358,9 +413,11 @@
 				DEVELOPMENT_TEAM = BMNBE7JVDJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Watch Store";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -380,7 +437,6 @@
 		62DA87D728B19B83002B4278 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -388,9 +444,11 @@
 				DEVELOPMENT_TEAM = BMNBE7JVDJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Watch Store";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -429,6 +487,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		622BFF7F28BDB91C00C562DB /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		622BFF8028BDB91C00C562DB /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 622BFF7F28BDB91C00C562DB /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 62DA87BF28B19B82002B4278 /* Project object */;
 }

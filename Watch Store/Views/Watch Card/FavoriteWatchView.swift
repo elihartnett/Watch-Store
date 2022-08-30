@@ -14,6 +14,8 @@ struct FavoriteWatchView: View {
     var body: some View {
         
         Image(systemName: watch.isFavorite ? "heart.fill" : "heart")
+            .resizable()
+            .scaledToFit()
             .onTapGesture {
                 watch.isFavorite.toggle()
             }

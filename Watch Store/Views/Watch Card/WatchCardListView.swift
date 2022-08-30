@@ -31,6 +31,7 @@ struct WatchCardListView: View {
             VStack (alignment: .trailing) {
                 
                 FavoriteWatchView(watch: watch)
+                    .frame(width: 29, height: 29)
                 
                 WatchPriceView(price: watch.price)
                 
@@ -47,9 +48,7 @@ struct WatchCardListView: View {
         .frame(height: 239)
         .frame(maxWidth: .infinity)
         .background {
-            Rectangle()
-                .fill(LinearGradient(gradient: Gradient(colors: [Color(uiColor: .systemGray6).opacity(0.5), Color(uiColor: .systemGray4)]), startPoint: .top, endPoint: .bottom))
-                .cornerRadius(10)
+            GradientBackgroundView()
         }
         .padding(.top, watchTopOffset)
     }

@@ -31,16 +31,13 @@ struct WatchCardGridView: View {
             AddToBagView(watch: watch)
                 .padding()
         }
-        .overlay {
+        .overlay(alignment: .topTrailing, content: {
             FavoriteWatchView(watch: watch)
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
-                .padding()
-        }
+                .frame(width: 29, height: 29)
+                .padding(5)
+        })
         .background {
-            Rectangle()
-                .fill(LinearGradient(gradient: Gradient(colors: [.white, Color(uiColor: .systemGray4)]), startPoint: .top, endPoint: .bottom))
-                .cornerRadius(10)
-                .padding(.top, watchTopOffset)
+            GradientBackgroundView()
         }
         .frame(height: 290)
         .padding(.top, watchTopOffset + 30)
