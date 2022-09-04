@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct Watch_StoreApp: App {
+    
+    @StateObject var storeModel = StoreModel()
+    
     var body: some Scene {
         WindowGroup {
             HomeView()
+                .environmentObject(storeModel)
         }
     }
 }

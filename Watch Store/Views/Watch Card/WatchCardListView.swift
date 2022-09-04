@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WatchCardListView: View {
     
-    @State var watch: Watch
+    @ObservedObject var watch: Watch
     let watchTopOffset: CGFloat = 20
     
     var body: some View {
@@ -41,7 +41,7 @@ struct WatchCardListView: View {
                 
                 Spacer()
                 
-                AddToBagView(watch: watch)
+                AddToCartView(watch: watch)
             }
             .padding()
         }

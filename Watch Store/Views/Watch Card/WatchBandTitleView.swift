@@ -10,26 +10,11 @@ import SwiftUI
 struct WatchBandTitleView: View {
     
     let bandType: WatchBandType
+    let storeModel = StoreModel()
     
     var body: some View {
         
-        Group {
-            switch bandType {
-                
-            case .sport:
-                Text("Sport Band")
-            case .solo:
-                Text("Solo Band")
-            case .braided:
-                Text("Braided Solo Band")
-            case .leather:
-                Text("Leather Band")
-            case .stainlessSteel:
-                Text("Stainless Steel Band")
-            case .nike:
-                Text("Nike Band")
-            }
-        }
+        Text(storeModel.getBandTitle(bandType: bandType))
         .lineLimit(1)
         .minimumScaleFactor(0.75)
     }

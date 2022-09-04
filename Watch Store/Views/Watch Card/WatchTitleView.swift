@@ -10,22 +10,11 @@ import SwiftUI
 struct WatchTitleView: View {
     
     let caseType: WatchCaseType
+    let storeModel = StoreModel()
     
     var body: some View {
         
-        Group {
-            switch caseType {
-                
-            case .starlightAluminum:
-                Text("Starlight Aluminum Case")
-                
-            case .midnightAluminum:
-                Text("Midnight Aluminum Case")
-                
-            case.redAluminum:
-                Text("Red Aluminum Case")
-            }
-        }
+        Text(storeModel.getCaseTitle(caseType: caseType))
         .fontWeight(.bold)
         .lineLimit(1)
         .minimumScaleFactor(0.75)

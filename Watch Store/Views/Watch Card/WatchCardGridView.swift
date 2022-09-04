@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WatchCardGridView: View {
     
-    @State var watch: Watch
+    @ObservedObject var watch: Watch
     let watchTopOffset: CGFloat = 40
     
     var body: some View {
@@ -28,7 +28,7 @@ struct WatchCardGridView: View {
             
             WatchBandOptionsView(watch: watch)
             
-            AddToBagView(watch: watch)
+            AddToCartView(watch: watch)
                 .padding()
         }
         .overlay(alignment: .topTrailing, content: {

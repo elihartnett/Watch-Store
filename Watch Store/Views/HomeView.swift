@@ -9,15 +9,16 @@ import SwiftUI
 
 struct HomeView: View {
     
+    @EnvironmentObject var storeModel: StoreModel
     @State var viewType: ViewType = .list
-    let watches = [Watch(caseType: .starlightAluminum, bandType: .braided, image: Constants.Image.Watch.placeHolder1, price: 399), Watch(caseType: .midnightAluminum, bandType: .solo, image: Constants.Image.Watch.placeHolder2, price: 399), Watch(caseType: .midnightAluminum, bandType: .nike, image: Constants.Image.Watch.placeHolder3, price: 399), Watch(caseType: .redAluminum, bandType: .sport, image: Constants.Image.Watch.placeHolder4, price: 399), Watch(caseType: .midnightAluminum, bandType: .leather, image: Constants.Image.Watch.placeHolder5, price: 399), Watch(caseType: .midnightAluminum, bandType: .stainlessSteel, image: Constants.Image.Watch.placeHolder6, price: 399)]
     let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
     @State var time = 0.0
     @State var launching = true
+    @State var navigationPath = NavigationPath()
     
     var body: some View {
         
-        NavigationView {
+        NavigationStack(path: $navigationPath) {
             
             ScrollView {
                 
@@ -26,20 +27,16 @@ struct HomeView: View {
                     switch viewType {
                         
                     case .list:
-                        ForEach(watches) { watch in
-                            NavigationLink {
-                                WatchCardDetailView(watch: watch)
-                            } label: {
+                        ForEach(storeModel.watches) { watch in
+                            NavigationLink(value: Route.detail(watch: watch)) {
                                 WatchCardListView(watch: watch)
                                     .padding()
                             }
                         }
                     case .grid:
                         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
-                            ForEach(watches) { watch in
-                                NavigationLink {
-                                    WatchCardDetailView(watch: watch)
-                                } label: {
+                            ForEach(storeModel.watches) { watch in
+                                NavigationLink(value: Route.detail(watch: watch)) {
                                     WatchCardGridView(watch: watch)
                                         .padding()
                                 }
@@ -48,10 +45,16 @@ struct HomeView: View {
                     }
                 }
                 .foregroundColor(.primary)
+                .navigationDestination(for: Route.self) { route in
+                    switch route {
+                    case .detail(let watch):
+                        WatchCardDetailView(watch: watch, navigationPath: $navigationPath)
+                    }
+                }
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Image(systemName: "bag")
+                    CartToolBarItem()
                 }
                 
                 ToolbarItem(placement: .primaryAction) {
@@ -91,5 +94,6 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+            .environmentObject(StoreModel())
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FavoriteWatchView: View {
     
-    @State var watch: Watch
+    @ObservedObject var watch: Watch
     
     var body: some View {
         

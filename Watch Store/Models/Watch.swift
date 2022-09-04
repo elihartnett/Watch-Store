@@ -7,11 +7,28 @@
 
 import Foundation
 
-struct Watch: Identifiable {
+class Watch: ObservableObject, Identifiable, Hashable {
+    
     let id = UUID()
     let caseType: WatchCaseType
     let bandType: WatchBandType
     let image: String
     let price: Double
-    var isFavorite = false
+    @Published var isFavorite = false
+    
+    init(caseType: WatchCaseType, bandType: WatchBandType, image: String, price: Double, isFavorite: Bool = false) {
+        self.caseType = caseType
+        self.bandType = bandType
+        self.image = image
+        self.price = price
+        self.isFavorite = isFavorite
+    }
+    
+    static func == (lhs: Watch, rhs: Watch) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }

@@ -13,7 +13,7 @@ class DeveloperPreview {
     static let instance = DeveloperPreview()
     private init() {}
     
-    let watch = Watch(caseType: .starlightAluminum, bandType: .braided, image: Constants.Image.Watch.placeHolder1, price: 399)
+    let watch = Watch(caseType: .starlightAluminum, bandType: .braided(color: .blue), image: Constants.Image.Watch.placeHolder1, price: 399)
 }
 
 extension PreviewProvider {

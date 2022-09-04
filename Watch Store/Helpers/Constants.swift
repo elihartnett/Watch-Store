@@ -17,15 +17,10 @@ struct Constants {
         }
         
         struct Icon {
-            static let apple = "icon_apple"
-            static let bag = "icon_bag"
             static let cellular = "icon_cellular"
             static let compatibility = "icon_compatibility"
-            static let heart = "icon_heart"
             static let productRed = "icon_product_red"
-            static let star = "icon_star"
             static let wifi = "icon_wifi"
-            static let x = "icon_x"
         }
         
         struct Watch {
@@ -75,6 +70,6 @@ struct Constants {
     
     struct Color {
         
-        static let addToBag = "addToBag"
+        static let addToCart = "addToCart"
     }
 }

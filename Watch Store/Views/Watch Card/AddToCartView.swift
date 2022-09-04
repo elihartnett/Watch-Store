@@ -1,5 +1,5 @@
 //
-//  AddToBagView.swift
+//  AddToCartView.swift
 //  Watch Store
 //
 //  Created by Eli Hartnett on 8/28/22.
@@ -7,16 +7,17 @@
 
 import SwiftUI
 
-struct AddToBagView: View {
+struct AddToCartView: View {
     
+    @EnvironmentObject var storeModel: StoreModel
     let watch: Watch
     
     var body: some View {
         
         Button {
-#warning("Add to bag")
+            storeModel.cart.append(watch)
         } label:{
-            Color(Constants.Color.addToBag)
+            Color(Constants.Color.addToCart)
                 .frame(width: 152, height: 45)
                 .cornerRadius(10)
                 .overlay {
@@ -27,8 +28,8 @@ struct AddToBagView: View {
     }
 }
 
-struct AddToBagView_Previews: PreviewProvider {
+struct AddToCartView_Previews: PreviewProvider {
     static var previews: some View {
-        AddToBagView(watch: dev.watch)
+        AddToCartView(watch: dev.watch)
     }
 }
