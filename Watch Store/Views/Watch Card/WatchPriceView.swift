@@ -21,7 +21,6 @@ struct WatchPriceView: View {
                 .fontWeight(.heavy)
                 .font(.largeTitle)
         }
-        .lineLimit(1)
         .minimumScaleFactor(0.75)
     }
 }

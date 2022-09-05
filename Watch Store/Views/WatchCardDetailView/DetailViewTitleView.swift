@@ -13,26 +13,9 @@ struct DetailViewTitleView: View {
     
     var body: some View {
         
-        Text("\(watch.caseType.rawValue) case with \(getWatchCaseTypeString()) Band")
+        Text("\(Watch.getCaseTitle(caseType: watch.caseType)) With \(Watch.getBandTitle(bandType: watch.bandType))")
             .font(.title)
             .bold()
-    }
-    
-    func getWatchCaseTypeString() -> String {
-        switch watch.bandType {
-        case .sport:
-            return "Sport"
-        case .solo:
-            return "Solo"
-        case .braided:
-            return "Braided"
-        case .leather:
-            return "Leather"
-        case .stainlessSteel:
-            return "Stainless Steel"
-        case .nike:
-            return "Nike"
-        }
     }
 }
 

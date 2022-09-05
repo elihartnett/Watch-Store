@@ -32,7 +32,7 @@ struct DetailViewAppleCareView: View {
                     Spacer()
                     
                     Button {
-                        #warning("Add to order")
+#warning("Add to order")
                     } label: {
                         Text("Add")
                     }
@@ -51,7 +51,7 @@ struct DetailViewAppleCareView: View {
                     Spacer()
                     
                     Button {
-                        #warning("Get started")
+#warning("Get started")
                     } label: {
                         Text("Get Started")
                     }

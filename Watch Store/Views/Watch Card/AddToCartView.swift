@@ -31,5 +31,6 @@ struct AddToCartView: View {
 struct AddToCartView_Previews: PreviewProvider {
     static var previews: some View {
         AddToCartView(watch: dev.watch)
+            .environmentObject(StoreModel())
     }
 }

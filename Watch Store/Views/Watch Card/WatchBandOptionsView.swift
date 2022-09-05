@@ -9,13 +9,13 @@ import SwiftUI
 
 struct WatchBandOptionsView: View {
     
-    @EnvironmentObject var storeModel: StoreModel
     @ObservedObject var watch: Watch
     var limit: Int?
+    var size = CGSize(width: 20, height: 20)
+    
+    let selectionPadding: CGFloat = 5
     @State var watchBands: [(String, WatchBandType)] = []
     @State var moreAvailable = false
-    var size = CGSize(width: 20, height: 20)
-    let selectionPadding: CGFloat = 5
     
     var body: some View {
         
@@ -43,7 +43,7 @@ struct WatchBandOptionsView: View {
             }
         }
         .onAppear {
-            (watchBands, moreAvailable) = storeModel.getBandImages(watchBandType: watch.bandType, limit: limit)
+            (watchBands, moreAvailable) = Watch.getBandImages(watchBandType: watch.bandType, limit: limit)
         }
     }
 }

@@ -10,11 +10,10 @@ import SwiftUI
 struct WatchBandTitleView: View {
     
     let bandType: WatchBandType
-    let storeModel = StoreModel()
     
     var body: some View {
         
-        Text(storeModel.getBandTitle(bandType: bandType))
+        Text(Watch.getBandTitle(bandType: bandType))
         .lineLimit(1)
         .minimumScaleFactor(0.75)
     }
