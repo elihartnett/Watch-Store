@@ -22,12 +22,11 @@
 		6262D2EF28C522A400F2CE17 /* DetailViewTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6262D2EE28C522A400F2CE17 /* DetailViewTitleView.swift */; };
 		6262D2F128C522CA00F2CE17 /* DetailViewCaseSizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6262D2F028C522CA00F2CE17 /* DetailViewCaseSizeView.swift */; };
 		6262D2F328C522F600F2CE17 /* DetailViewConnectivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6262D2F228C522F600F2CE17 /* DetailViewConnectivityView.swift */; };
-		6262D2F528C5232300F2CE17 /* DetailViewBandOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6262D2F428C5232300F2CE17 /* DetailViewBandOptionsView.swift */; };
+		6262D2F728C536DD00F2CE17 /* WatchBandOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6262D2F628C536DD00F2CE17 /* WatchBandOptionsView.swift */; };
 		628F839B28BCEE7600D88AB4 /* WatchCardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628F839A28BCEE7600D88AB4 /* WatchCardDetailView.swift */; };
 		628F839D28BCEF3400D88AB4 /* GradientBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628F839C28BCEF3400D88AB4 /* GradientBackgroundView.swift */; };
 		62B155F628BBD09B00CABE17 /* WatchCardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B155F528BBD09B00CABE17 /* WatchCardListView.swift */; };
 		62B155FA28BBD0F200CABE17 /* WatchCardGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B155F928BBD0F200CABE17 /* WatchCardGridView.swift */; };
-		62B155FC28BBD10A00CABE17 /* WatchBandOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B155FB28BBD10A00CABE17 /* WatchBandOptionsView.swift */; };
 		62B155FE28BC33B500CABE17 /* FavoriteWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B155FD28BC33B500CABE17 /* FavoriteWatchView.swift */; };
 		62B1560028BC33BD00CABE17 /* WatchPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B155FF28BC33BD00CABE17 /* WatchPriceView.swift */; };
 		62B1560228BC33C800CABE17 /* WatchTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1560128BC33C800CABE17 /* WatchTitleView.swift */; };
@@ -56,12 +55,11 @@
 		6262D2EE28C522A400F2CE17 /* DetailViewTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewTitleView.swift; sourceTree = "<group>"; };
 		6262D2F028C522CA00F2CE17 /* DetailViewCaseSizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewCaseSizeView.swift; sourceTree = "<group>"; };
 		6262D2F228C522F600F2CE17 /* DetailViewConnectivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewConnectivityView.swift; sourceTree = "<group>"; };
-		6262D2F428C5232300F2CE17 /* DetailViewBandOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewBandOptionsView.swift; sourceTree = "<group>"; };
+		6262D2F628C536DD00F2CE17 /* WatchBandOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBandOptionsView.swift; sourceTree = "<group>"; };
 		628F839A28BCEE7600D88AB4 /* WatchCardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchCardDetailView.swift; sourceTree = "<group>"; };
 		628F839C28BCEF3400D88AB4 /* GradientBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackgroundView.swift; sourceTree = "<group>"; };
 		62B155F528BBD09B00CABE17 /* WatchCardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchCardListView.swift; sourceTree = "<group>"; };
 		62B155F928BBD0F200CABE17 /* WatchCardGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchCardGridView.swift; sourceTree = "<group>"; };
-		62B155FB28BBD10A00CABE17 /* WatchBandOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBandOptionsView.swift; sourceTree = "<group>"; };
 		62B155FD28BC33B500CABE17 /* FavoriteWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteWatchView.swift; sourceTree = "<group>"; };
 		62B155FF28BC33BD00CABE17 /* WatchPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchPriceView.swift; sourceTree = "<group>"; };
 		62B1560128BC33C800CABE17 /* WatchTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchTitleView.swift; sourceTree = "<group>"; };
@@ -143,6 +141,13 @@
 			path = Cart;
 			sourceTree = "<group>";
 		};
+		6262D2F828C568AD00F2CE17 /* Reuseable Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Reuseable Views";
+			sourceTree = "<group>";
+		};
 		628F839628BCEDBC00D88AB4 /* WatchCardDetailView */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,7 +156,6 @@
 				6262D2EE28C522A400F2CE17 /* DetailViewTitleView.swift */,
 				6262D2F028C522CA00F2CE17 /* DetailViewCaseSizeView.swift */,
 				6262D2F228C522F600F2CE17 /* DetailViewConnectivityView.swift */,
-				6262D2F428C5232300F2CE17 /* DetailViewBandOptionsView.swift */,
 				6262D2EC28C51E9600F2CE17 /* DetailViewAppleCareView.swift */,
 			);
 			path = WatchCardDetailView;
@@ -160,6 +164,7 @@
 		628F839728BCEDF000D88AB4 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				6262D2F828C568AD00F2CE17 /* Reuseable Views */,
 				622BFF7C28BDB8CA00C562DB /* Lottie */,
 				625ADFE628B28C8500756BB1 /* Enums.swift */,
 				625ADFDA28B2867400756BB1 /* Constants.swift */,
@@ -172,11 +177,11 @@
 			children = (
 				62B155F528BBD09B00CABE17 /* WatchCardListView.swift */,
 				62B155F928BBD0F200CABE17 /* WatchCardGridView.swift */,
-				62B155FB28BBD10A00CABE17 /* WatchBandOptionsView.swift */,
 				62B155FD28BC33B500CABE17 /* FavoriteWatchView.swift */,
 				62B155FF28BC33BD00CABE17 /* WatchPriceView.swift */,
 				62B1560128BC33C800CABE17 /* WatchTitleView.swift */,
 				62B1560328BC33D100CABE17 /* WatchBandTitleView.swift */,
+				6262D2F628C536DD00F2CE17 /* WatchBandOptionsView.swift */,
 				62B1560528BC33DB00CABE17 /* AddToCartView.swift */,
 				628F839C28BCEF3400D88AB4 /* GradientBackgroundView.swift */,
 			);
@@ -303,7 +308,6 @@
 			files = (
 				628F839D28BCEF3400D88AB4 /* GradientBackgroundView.swift in Sources */,
 				622BFF7E28BDB8DA00C562DB /* LottieView.swift in Sources */,
-				6262D2F528C5232300F2CE17 /* DetailViewBandOptionsView.swift in Sources */,
 				62DA87CD28B19B82002B4278 /* HomeView.swift in Sources */,
 				625ADFE528B28BDC00756BB1 /* PreviewProvider+Ext.swift in Sources */,
 				62B1560428BC33D100CABE17 /* WatchBandTitleView.swift in Sources */,
@@ -312,7 +316,6 @@
 				6262D2F128C522CA00F2CE17 /* DetailViewCaseSizeView.swift in Sources */,
 				62B1560028BC33BD00CABE17 /* WatchPriceView.swift in Sources */,
 				6262D2F328C522F600F2CE17 /* DetailViewConnectivityView.swift in Sources */,
-				62B155FC28BBD10A00CABE17 /* WatchBandOptionsView.swift in Sources */,
 				62B155FE28BC33B500CABE17 /* FavoriteWatchView.swift in Sources */,
 				6262D2E928C4D72300F2CE17 /* CartView.swift in Sources */,
 				6262D2EF28C522A400F2CE17 /* DetailViewTitleView.swift in Sources */,
@@ -324,6 +327,7 @@
 				625ADFDB28B2867400756BB1 /* Constants.swift in Sources */,
 				628F839B28BCEE7600D88AB4 /* WatchCardDetailView.swift in Sources */,
 				625ADFE728B28C8500756BB1 /* Enums.swift in Sources */,
+				6262D2F728C536DD00F2CE17 /* WatchBandOptionsView.swift in Sources */,
 				62C4BDEC28BE539600A25DA4 /* DetailViewImageView.swift in Sources */,
 				6262D2ED28C51E9600F2CE17 /* DetailViewAppleCareView.swift in Sources */,
 				625ADFE228B28B4B00756BB1 /* Watch.swift in Sources */,

@@ -26,8 +26,8 @@ struct WatchCardGridView: View {
             
             WatchBandTitleView(bandType: watch.bandType)
             
-            WatchBandOptionsView(watch: watch)
-            
+            WatchBandOptionsView(watch: watch, limit: 3)
+
             AddToCartView(watch: watch)
                 .padding()
         }

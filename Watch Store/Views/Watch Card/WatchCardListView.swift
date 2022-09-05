@@ -21,7 +21,7 @@ struct WatchCardListView: View {
                     .resizable()
                     .frame(width: 129, height: 214)
                 
-                WatchBandOptionsView(watch: watch)
+                WatchBandOptionsView(watch: watch, limit: 3)                
             }
             .padding(.leading)
             .offset(y: -watchTopOffset)

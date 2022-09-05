@@ -11,7 +11,6 @@ import SwiftUI
 enum WatchCaseType: String, Hashable {
     case starlightAluminum = "Starlight Aluminum"
     case midnightAluminum = "Midnight Aluminum"
-    case redAluminum = "Red Aluminum"
 }
 
 enum WatchBandType: Hashable {
@@ -23,37 +22,47 @@ enum WatchBandType: Hashable {
     case nike(color: NikeBandColor)
 }
 
-enum SportBandColor: Hashable {
+enum SportBandColor: CaseIterable, Hashable {
     case red
-    case black
-    case blue
-    case brown
-    case pink
+    case navy
     case white
+    case green
+    case blue
+    case yellow
+    case black
 }
 
-enum SoloBandColor: Hashable {
+enum SoloBandColor: CaseIterable, Hashable {
     case pink
     case green
     case yellow
 }
 
-enum BraidedBandColor: Hashable {
-    case black
+enum BraidedBandColor: CaseIterable, Hashable {
     case blue
+    case black
     case white
 }
 
-enum LeatherBandColor: Hashable {
-    case unknown
+enum LeatherBandColor: CaseIterable, Hashable {
+    case black
+    case brown
+    case purple
+    case green
 }
 
-enum StainlessSteelBandColor: Hashable {
-    case unknown
+enum StainlessSteelBandColor: CaseIterable, Hashable {
+    case black
+    case silver
+    case gold
 }
 
-enum NikeBandColor: Hashable {
-    case unknown
+enum NikeBandColor: CaseIterable, Hashable {
+    case black
+    case blue
+    case brown
+    case pink
+    case white
 }
 
 enum ViewType {

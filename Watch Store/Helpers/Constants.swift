@@ -35,11 +35,13 @@ struct Constants {
         struct WatchBand {
             
             enum Sport: String, CaseIterable {
-                case black = "band_regular_black"
-                case blue = "band_regular_blue"
-                case brown = "band_regular_brown"
-                case pink = "band_regular_pink"
-                case white = "band_regular_white"
+                case red = "band_sport_red"
+                case navy = "band_sport_navy"
+                case white = "band_sport_white"
+                case green = "band_sport_green"
+                case blue = "band_sport_blue"
+                case yellow = "band_sport_yellow"
+                case black = "band_sport_black"
             }
             
             enum Solo: String, CaseIterable {
@@ -55,15 +57,24 @@ struct Constants {
             }
             
             enum Leather: String, CaseIterable {
-                case empty = ""
+                case black = "band_leather_black"
+                case brown = "band_leather_brown"
+                case purple = "band_leather_purple"
+                case green = "band_leather_green"
             }
             
             enum StainlessSteel: String, CaseIterable {
-                case empty = ""
+                case black = "band_stainless_black"
+                case silver = "band_stainless_silver"
+                case gold = "band_stainless_gold"
             }
             
             enum Nike: String, CaseIterable {
-                case empty = ""
+                case black = "band_nike_black"
+                case blue = "band_nike_blue"
+                case brown = "band_nike_brown"
+                case pink = "band_nike_pink"
+                case white = "band_nike_white"
             }
         }
     }

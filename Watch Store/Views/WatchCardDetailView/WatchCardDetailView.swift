@@ -22,6 +22,8 @@ struct WatchCardDetailView: View {
                 
                 DetailViewImageView(watch: watch)
                 
+                WatchBandOptionsView(watch: watch, size: CGSize(width: 32, height: 32))
+                
                 DetailViewTitleView(watch: watch)
                 
                 HStack {
@@ -62,7 +64,6 @@ struct WatchCardDetailView: View {
                         .font(.title2)
                         .bold()
                     
-                    DetailViewBandOptionsView(watch: watch)
                 }
                 
                 DetailViewAppleCareView()

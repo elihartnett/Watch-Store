@@ -11,7 +11,7 @@ class Watch: ObservableObject, Identifiable, Hashable {
     
     let id = UUID()
     let caseType: WatchCaseType
-    let bandType: WatchBandType
+    @Published var bandType: WatchBandType
     let image: String
     let price: Double
     @Published var isFavorite = false
