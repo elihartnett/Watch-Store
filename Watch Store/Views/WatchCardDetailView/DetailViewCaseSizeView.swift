@@ -31,9 +31,24 @@ struct DetailViewCaseSizeView: View {
                     
                     Spacer()
                     
-                    Text("$") + Text("\((watch.basePrice + (size == .regular ? 0 : 30)).formatted())")
+                    HStack(spacing: 1) {
+                        Text("$")
+                        Group {
+                            switch size {
+                            case .regular:
+                                Text((watch.basePrice + (watch.connectivity == .gps ? 0 : 100)).formatted())
+                            case .large:
+                                switch watch.caseType {
+                                case .aluminum:
+                                    Text((watch.basePrice + 30 + (watch.connectivity == .gps ? 0 : 100)).formatted())
+                                case .stainlessSteel:
+                                    Text((watch.basePrice + 50 + (watch.connectivity == .gps ? 0 : 100)).formatted())
+                                }
+                            }
+                        }
                         .font(.title)
                         .bold()
+                    }
                 }
                 .foregroundColor(.black)
                 .padding()

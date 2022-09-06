@@ -190,6 +190,16 @@ class Watch: ObservableObject, Identifiable, Hashable {
         }
     }
     
+    static func getCaseDescription(caseType: WatchCaseType) -> String {
+        switch caseType {
+        case .aluminum:
+            return "The aluminum case is lightweight and made from 100 percent recycled aerospace-grade alloy."
+            
+        case .stainlessSteel:
+            return "The stainless steel case is durable and polished to a shiny, mirror-like finish."
+        }
+    }
+    
     static func getPrice(watch: Watch) -> String {
         var price = watch.basePrice
         
@@ -197,7 +207,12 @@ class Watch: ObservableObject, Identifiable, Hashable {
         case .regular:
             break
         case .large:
-            price += 30
+            switch watch.caseType {
+            case .aluminum:
+                price += 30
+            case .stainlessSteel:
+                price += 50
+            }
         }
         
         switch watch.connectivity {

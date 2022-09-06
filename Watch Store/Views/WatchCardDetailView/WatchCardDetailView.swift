@@ -34,14 +34,19 @@ struct WatchCardDetailView: View {
                         .fontWeight(.light)
                 }
                 
-                Text(Watch.getBandDescription(bandType: watch.bandType))
+                Text(Watch.getCaseDescription(caseType: watch.caseType))
                     .fontWeight(.light)
                 
+                Text(Watch.getBandDescription(bandType: watch.bandType))
+                    .fontWeight(.light)
                 
                 Group {
                     Text("Band Colors")
                         .font(.title2)
                         .bold()
+                    
+                    Divider()
+                    
                     WatchBandOptionsView(watch: watch, size: CGSize(width: 32, height: 32))
                 }
                 
@@ -49,6 +54,8 @@ struct WatchCardDetailView: View {
                     Text("Case Sizes")
                         .font(.title2)
                         .bold()
+                    
+                    Divider()
                     
                     DetailViewCaseSizeView(watch: watch, size: .regular)
                     
@@ -60,6 +67,8 @@ struct WatchCardDetailView: View {
                         .font(.title2)
                         .bold()
                     
+                    Divider()
+                    
                     HStack {
                         DetailViewConnectivityView(watch: watch, connectivity: .gps)
                         
@@ -68,6 +77,7 @@ struct WatchCardDetailView: View {
                 }
                 
                 AddToCartView(watch: watch)
+                    .padding()
                 
                 DetailViewAppleCareView()
             }

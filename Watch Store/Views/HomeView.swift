@@ -71,21 +71,21 @@ struct HomeView: View {
                 }
             }
         }
-//        .overlay {
-//            LottieView(lottieFile: "logoAnimation")
-//                .ignoresSafeArea()
-//                .onReceive(timer) { _ in
-//                    time += 0.1
-//                    if time >= 3.5 {
-//                        withAnimation {
-//                            launching = false
-//                        }
-//                        timer.upstream.connect().cancel()
-//                    }
-//                }
-//                .background(.white)
-//                .opacity(launching ? 1 : 0)
-//        }
+        .overlay {
+            LottieView(lottieFile: "logoAnimation")
+                .ignoresSafeArea()
+                .onReceive(timer) { _ in
+                    time += 0.1
+                    if time >= 3.5 {
+                        withAnimation {
+                            launching = false
+                        }
+                        timer.upstream.connect().cancel()
+                    }
+                }
+                .background(.white)
+                .opacity(launching ? 1 : 0)
+        }
     }
 }
 
