@@ -22,9 +22,9 @@ struct WatchCardDetailView: View {
                 
                 DetailViewImageView(watch: watch)
                 
-                WatchBandOptionsView(watch: watch, size: CGSize(width: 32, height: 32))
-                
-                DetailViewTitleView(watch: watch)
+                Text("\(Watch.getCaseTitle(caseType: watch.caseType)) With \(Watch.getBandTitle(bandType: watch.bandType))")
+                    .font(.title)
+                    .bold()
                 
                 HStack {
                     Image(systemName: "star.fill")
@@ -34,17 +34,25 @@ struct WatchCardDetailView: View {
                         .fontWeight(.light)
                 }
                 
-                Text("The aluminum case is lightweight and made from 100 percent recycled aerospace-grade alloy. \n\nThe Nike Sport Band is made from a durable high-performance fluoroelastomer with compression-molded perforations for breathability.")
+                Text(Watch.getBandDescription(bandType: watch.bandType))
                     .fontWeight(.light)
+                
+                
+                Group {
+                    Text("Band Colors")
+                        .font(.title2)
+                        .bold()
+                    WatchBandOptionsView(watch: watch, size: CGSize(width: 32, height: 32))
+                }
                 
                 Group {
                     Text("Case Sizes")
                         .font(.title2)
                         .bold()
                     
-                    DetailViewCaseSizeView(watch: watch)
+                    DetailViewCaseSizeView(watch: watch, size: .regular)
                     
-                    DetailViewCaseSizeView(watch: watch)
+                    DetailViewCaseSizeView(watch: watch, size: .large)
                 }
                 
                 Group {
@@ -53,18 +61,13 @@ struct WatchCardDetailView: View {
                         .bold()
                     
                     HStack {
-                        DetailViewConnectivityView(watch: watch)
+                        DetailViewConnectivityView(watch: watch, connectivity: .gps)
                         
-                        DetailViewConnectivityView(watch: watch)
+                        DetailViewConnectivityView(watch: watch, connectivity: .gpsAndCellular)
                     }
                 }
                 
-                Group {
-                    Text("Band Colors")
-                        .font(.title2)
-                        .bold()
-                    
-                }
+                AddToCartView(watch: watch)
                 
                 DetailViewAppleCareView()
             }

@@ -11,17 +11,19 @@ class Watch: ObservableObject, Identifiable, Hashable {
     
     let id = UUID()
     let caseType: WatchCaseType
+    @Published var caseSize: WatchCaseSize
     @Published var bandType: WatchBandType
-    @Published var image: String
-    @Published var price: Double
+    @Published var connectivity: WatchConnectivity
+    @Published var basePrice: Double
     @Published var isFavorite = false
     
     
-    init(caseType: WatchCaseType, bandType: WatchBandType, image: String, price: Double, isFavorite: Bool = false) {
+    init(caseType: WatchCaseType, caseSize: WatchCaseSize = .regular, bandType: WatchBandType, connectivity: WatchConnectivity = .gps, basePrice: Double, isFavorite: Bool = false) {
         self.caseType = caseType
+        self.caseSize = caseSize
         self.bandType = bandType
-        self.image = image
-        self.price = price
+        self.connectivity = connectivity
+        self.basePrice = basePrice
         self.isFavorite = isFavorite
     }
     
@@ -33,14 +35,49 @@ class Watch: ObservableObject, Identifiable, Hashable {
         hasher.combine(id)
     }
     
+    static func getImageString(watch: Watch) -> String {
+        var imageString = "watch_"
+        
+        switch watch.caseType  {
+        case .aluminum(color: let color):
+            imageString += "aluminum_\(color.rawValue)_"
+            
+        case .stainlessSteel(color: let color):
+            imageString += "stainless_\(color.rawValue)_"
+        }
+        
+        switch watch.bandType {
+        case .sport(color: let color):
+            imageString += "sport_\(color.rawValue)"
+            
+        case .solo(color: let color):
+            imageString += "solo_\(color.rawValue)"
+            
+        case .braided(color: let color):
+            imageString += "braided_\(color.rawValue)"
+            
+        case .leather(color: let color):
+            imageString += "leather_\(color.rawValue)"
+            
+        case .milanese(color: let color):
+            imageString += "milanese_\(color.rawValue)"
+            
+        case .nike(color: let color):
+            imageString += "nike_\(color.rawValue)"
+        }
+        
+        return imageString
+    }
+    
     static func getCaseTitle(caseType: WatchCaseType) -> String {
         
         switch caseType {
-        case .starlightAluminum:
-            return "Starlight Aluminum Case"
-            
-        case .midnightAluminum:
+        case .aluminum(color: .midnight):
             return "Midnight Aluminum Case"
+        case .aluminum(color: .starlight):
+            return "Starlight Aluminum Case"
+        case .stainlessSteel(color: .graphite):
+            return "Graphite Stainless Steel"
         }
     }
     
@@ -51,26 +88,26 @@ class Watch: ObservableObject, Identifiable, Hashable {
             return "Sport Band"
             
         case .solo:
-            return "Solo Band"
+            return "Solo Loop"
             
         case .braided:
-            return "Braided Solo Band"
+            return "Braided Solo Loop"
             
         case .leather:
             return "Leather Band"
             
-        case .stainlessSteel:
-            return "Stainless Steel Band"
+        case .milanese:
+            return "Milanese Steel Band"
             
         case .nike:
             return "Nike Band"
         }
     }
     
-    static func getBandImages(watchBandType: WatchBandType, limit: Int?) -> ([(imageString: String, bandType: WatchBandType)], moreAvailable: Bool) {
+    static func getBandImages(bandType: WatchBandType, limit: Int?) -> ([(imageString: String, bandType: WatchBandType)], moreAvailable: Bool) {
         var imageStrings: [(String, WatchBandType)] = []
-        switch watchBandType {
-        case .sport(_):
+        switch bandType {
+        case .sport:
             imageStrings = [
                 (Constants.Image.WatchBand.Sport.red.rawValue, .sport(color: .red)),
                 (Constants.Image.WatchBand.Sport.navy.rawValue, .sport(color: .navy)),
@@ -81,21 +118,21 @@ class Watch: ObservableObject, Identifiable, Hashable {
                 (Constants.Image.WatchBand.Sport.black.rawValue, .sport(color: .black))
             ]
             
-        case .solo(_):
+        case .solo:
             imageStrings = [
                 (Constants.Image.WatchBand.Solo.pink.rawValue, .solo(color: .pink)),
                 (Constants.Image.WatchBand.Solo.green.rawValue, .solo(color: .green)),
                 (Constants.Image.WatchBand.Solo.yellow.rawValue, .solo(color: .yellow))
             ]
             
-        case .braided(_):
+        case .braided:
             imageStrings = [
                 (Constants.Image.WatchBand.Braided.blue.rawValue, .braided(color: .blue)),
                 (Constants.Image.WatchBand.Braided.black.rawValue, .braided(color: .black)),
                 (Constants.Image.WatchBand.Braided.white.rawValue, .braided(color: .white))
             ]
             
-        case .leather(_):
+        case .leather:
             imageStrings = [
                 (Constants.Image.WatchBand.Leather.black.rawValue, .leather(color: .black)),
                 (Constants.Image.WatchBand.Leather.brown.rawValue, .leather(color: .brown)),
@@ -103,13 +140,13 @@ class Watch: ObservableObject, Identifiable, Hashable {
                 (Constants.Image.WatchBand.Leather.green.rawValue, .leather(color: .green))
             ]
             
-        case .stainlessSteel(_):
+        case .milanese:
             imageStrings = [
-                (Constants.Image.WatchBand.StainlessSteel.black.rawValue, .stainlessSteel(color: .black)),
-                (Constants.Image.WatchBand.StainlessSteel.silver.rawValue, .stainlessSteel(color: .silver)),
-                (Constants.Image.WatchBand.StainlessSteel.gold.rawValue, .stainlessSteel(color: .gold))            ]
+                (Constants.Image.WatchBand.Milanese.black.rawValue, .milanese(color: .black)),
+                (Constants.Image.WatchBand.Milanese.silver.rawValue, .milanese(color: .silver)),
+                (Constants.Image.WatchBand.Milanese.gold.rawValue, .milanese(color: .gold))            ]
             
-        case .nike(_):
+        case .nike:
             imageStrings = [
                 (Constants.Image.WatchBand.Nike.black.rawValue, .nike(color: .black)),
                 (Constants.Image.WatchBand.Nike.blue.rawValue, .nike(color: .blue)),
@@ -129,5 +166,47 @@ class Watch: ObservableObject, Identifiable, Hashable {
         }
         
         return (imageStrings, moreAvailable)
+    }
+    
+    static func getBandDescription(bandType: WatchBandType) -> String {
+        switch bandType {
+        case .sport:
+            return "The Sport Band is made from a durable yet surprisingly soft high-performance fluoroelastomer with an innovative pin-and-tuck closure."
+            
+        case .solo:
+            return "The Solo Loop is made from soft, stretchable silicone and designed for ultracomfort with no clasps or buckles."
+            
+        case .braided:
+            return "The Braided Solo Loop is made from recycled yarn and silicone threads for an ultracomfortable, stretchable design with no clasps or buckles."
+            
+        case .leather:
+            return "The Leather Link is made from handcrafted Roux Granada leather with no clasps or buckles, and has embedded magnets for a secure and adjustable fit."
+            
+        case .milanese:
+            return "The Milanese Loop is made from a smooth stainless steel mesh that’s fully magnetic, so it’s infinitely adjustable for a perfect fit."
+            
+        case .nike:
+            return "The Nike Sport Band is made from a durable high-performance fluoroelastomer with compression-molded perforations for breathability."
+        }
+    }
+    
+    static func getPrice(watch: Watch) -> String {
+        var price = watch.basePrice
+        
+        switch watch.caseSize {
+        case .regular:
+            break
+        case .large:
+            price += 30
+        }
+        
+        switch watch.connectivity {
+        case .gps:
+            break
+        case .gpsAndCellular:
+            price += 100
+        }
+        
+        return String(price)
     }
 }

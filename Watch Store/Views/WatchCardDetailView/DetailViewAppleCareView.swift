@@ -64,7 +64,7 @@ struct DetailViewAppleCareView: View {
                 
                 HStack(alignment: .bottom) {
                     
-                    Image(Constants.Image.Icon.compatibility)
+                    Image(Constants.Image.Icon.compatibility.rawValue)
                     
                     VStack(alignment: .leading, spacing: 10) {
                         Text("As part of our efforts to reach our environmental goals, Apple Watch does not include a power adapter. Please use your existing Apple power adapter or add a new one before you check out.")

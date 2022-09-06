@@ -8,9 +8,29 @@
 import Foundation
 import SwiftUI
 
-enum WatchCaseType: String, Hashable {
-    case starlightAluminum = "Starlight Aluminum"
-    case midnightAluminum = "Midnight Aluminum"
+enum WatchCaseType: Hashable {
+    
+    case aluminum(color: AluminumCaseColor)
+    case stainlessSteel(color: StainlessSteelCaseColor)
+    
+    enum AluminumCaseColor: String {
+        case starlight = "starlight"
+        case midnight = "midnight"
+    }
+    
+    enum StainlessSteelCaseColor: String {
+        case graphite = "graphite"
+    }
+}
+
+enum WatchCaseSize: String, Hashable {
+    case regular = "41"
+    case large = "45"
+}
+
+enum WatchConnectivity {
+    case gps
+    case gpsAndCellular
 }
 
 enum WatchBandType: Hashable {
@@ -18,51 +38,51 @@ enum WatchBandType: Hashable {
     case solo(color: SoloBandColor)
     case braided(color: BraidedBandColor)
     case leather(color: LeatherBandColor)
-    case stainlessSteel(color: StainlessSteelBandColor)
+    case milanese(color: MilaneseBandColor)
     case nike(color: NikeBandColor)
-}
+    
+    enum SportBandColor: String, Hashable {
+        case red = "red"
+        case navy = "navy"
+        case white = "white"
+        case green = "green"
+        case blue = "blue"
+        case yellow = "yellow"
+        case black = "black"
+    }
 
-enum SportBandColor: CaseIterable, Hashable {
-    case red
-    case navy
-    case white
-    case green
-    case blue
-    case yellow
-    case black
-}
+    enum SoloBandColor: String, Hashable {
+        case pink = "pink"
+        case green = "green"
+        case yellow = "yellow"
+    }
 
-enum SoloBandColor: CaseIterable, Hashable {
-    case pink
-    case green
-    case yellow
-}
+    enum BraidedBandColor: String, Hashable {
+        case blue = "blue"
+        case black = "black"
+        case white = "white"
+    }
 
-enum BraidedBandColor: CaseIterable, Hashable {
-    case blue
-    case black
-    case white
-}
+    enum LeatherBandColor: String, Hashable {
+        case black = "black"
+        case brown = "brown"
+        case purple = "purple"
+        case green = "green"
+    }
 
-enum LeatherBandColor: CaseIterable, Hashable {
-    case black
-    case brown
-    case purple
-    case green
-}
+    enum MilaneseBandColor: String, Hashable {
+        case black = "black"
+        case silver = "silver"
+        case gold = "gold"
+    }
 
-enum StainlessSteelBandColor: CaseIterable, Hashable {
-    case black
-    case silver
-    case gold
-}
-
-enum NikeBandColor: CaseIterable, Hashable {
-    case black
-    case blue
-    case brown
-    case pink
-    case white
+    enum NikeBandColor: String, Hashable {
+        case black = "black"
+        case blue = "blue"
+        case brown = "brown"
+        case pink = "pink"
+        case white = "white"
+    }
 }
 
 enum ViewType {

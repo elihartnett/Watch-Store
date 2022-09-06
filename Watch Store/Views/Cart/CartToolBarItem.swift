@@ -20,7 +20,8 @@ struct CartToolBarItem: View {
             }
             .overlay(alignment: .bottomTrailing) {
                 Text(storeModel.cart.count.description)
-                    .frame(width: 13, height: 13)
+                    .minimumScaleFactor(0.5)
+                    .frame(width: 14, height: 14)
                     .foregroundColor(.white)
                     .font(.caption)
                     .bold()

@@ -7,32 +7,35 @@
 
 import Foundation
 
-struct Constants {
+enum Constants {
     
-    struct Image {
+    enum Image {
         
-        struct Placeholder {
-            static let grid = "grouping_grid"
-            static let list = "grouping_list"
+        enum Placeholder: String {
+            case grid = "grouping_grid"
+            case list = "grouping_list"
         }
         
-        struct Icon {
-            static let cellular = "icon_cellular"
-            static let compatibility = "icon_compatibility"
-            static let productRed = "icon_product_red"
-            static let wifi = "icon_wifi"
+        enum Icon: String {
+            case cellular = "icon_cellular"
+            case compatibility = "icon_compatibility"
+            case productRed = "icon_product_red"
+            case wifi = "icon_wifi"
         }
         
-        struct Watch {
-            static let placeHolder1 = "watch1"
-            static let placeHolder2 = "watch2"
-            static let placeHolder3 = "watch3"
-            static let placeHolder4 = "watch4"
-            static let placeHolder5 = "watch5"
-            static let placeHolder6 = "watch6"
+        enum WatchCase {
+            
+            enum Aluminum: String {
+                case midnight = "watch_aluminum_midnight"
+                case starlight = "watch_aluminum_starlight"
+            }
+            
+            enum StainlessSteel: String {
+                case graphite = "watch_stainless_graphite"
+            }
         }
         
-        struct WatchBand {
+        enum WatchBand {
             
             enum Sport: String, CaseIterable {
                 case red = "band_sport_red"
@@ -63,10 +66,10 @@ struct Constants {
                 case green = "band_leather_green"
             }
             
-            enum StainlessSteel: String, CaseIterable {
-                case black = "band_stainless_black"
-                case silver = "band_stainless_silver"
-                case gold = "band_stainless_gold"
+            enum Milanese: String, CaseIterable {
+                case black = "band_milanese_black"
+                case silver = "band_milanese_silver"
+                case gold = "band_milanese_gold"
             }
             
             enum Nike: String, CaseIterable {
@@ -79,8 +82,14 @@ struct Constants {
         }
     }
     
-    struct Color {
+    enum Color: String {
         
-        static let addToCart = "addToCart"
+        case addToCart = "addToCart"
+    }
+    
+    enum Cost: String {
+        case base = "399"
+        case large = "30"
+        case cellular = "100"
     }
 }

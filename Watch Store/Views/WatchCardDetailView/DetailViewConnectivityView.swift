@@ -9,22 +9,31 @@ import SwiftUI
 
 struct DetailViewConnectivityView: View {
     
-    let watch: Watch
+    @ObservedObject var watch: Watch
+    let connectivity: WatchConnectivity
     
     var body: some View {
         
         Button {
-#warning("link to watch size and thicken border")
+            watch.connectivity = connectivity
         } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
-                    .stroke(.black)
-                
+                    .stroke(.black, style: StrokeStyle(lineWidth: watch.connectivity == connectivity ? 3 : 1))
+
                 VStack {
-                    Text("GPS")
+                    Text(connectivity == .gps ? "GPS" : "GPS + Cellular")
                         .bold()
                     
-                    Image(Constants.Image.Icon.wifi)
+                    HStack {
+                        Image(Constants.Image.Icon.wifi.rawValue)
+                        
+                        if connectivity == .gpsAndCellular {
+                            Image(systemName: "plus")
+                            
+                            Image(Constants.Image.Icon.cellular.rawValue)
+                        }
+                    }
                 }
                 .foregroundColor(.black)
                 .padding()
@@ -35,6 +44,6 @@ struct DetailViewConnectivityView: View {
 
 struct DetailViewConnectivityView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailViewConnectivityView(watch: dev.watch)
+        DetailViewConnectivityView(watch: dev.watch, connectivity: .gpsAndCellular)
     }
 }

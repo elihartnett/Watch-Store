@@ -10,21 +10,18 @@ import SwiftUI
 struct WatchCardListView: View {
     
     @ObservedObject var watch: Watch
-    let watchTopOffset: CGFloat = 20
     
     var body: some View {
         
         HStack {
             
             VStack (spacing: 23) {
-                Image(watch.image)
+                Image(Watch.getImageString(watch: watch))
                     .resizable()
                     .frame(width: 129, height: 214)
                 
-                WatchBandOptionsView(watch: watch, limit: 3)                
+                WatchBandOptionsView(watch: watch, limit: 3)
             }
-            .padding(.leading)
-            .offset(y: -watchTopOffset)
             
             Spacer()
             
@@ -33,24 +30,21 @@ struct WatchCardListView: View {
                 FavoriteWatchView(watch: watch)
                     .frame(width: 29, height: 29)
                 
-                WatchPriceView(price: watch.price)
+                WatchPriceView(price: watch.basePrice)
                 
-                WatchTitleView(caseType: watch.caseType)
+                WatchTitleView(caseType: watch.caseType, alignment: .trailing)
                 
                 WatchBandTitleView(bandType: watch.bandType)
                 
                 Spacer()
-                
+                                
                 AddToCartView(watch: watch)
             }
-            .padding()
         }
-        .frame(height: 239)
-        .frame(maxWidth: .infinity)
+        .padding()
         .background {
             GradientBackgroundView()
         }
-        .padding(.top, watchTopOffset)
     }
 }
 

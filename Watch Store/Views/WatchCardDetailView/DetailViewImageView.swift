@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DetailViewImageView: View {
     
-    let watch: Watch
+    @ObservedObject var watch: Watch
     let cardOffset: CGFloat = 20
     
     var body: some View {
@@ -18,7 +18,7 @@ struct DetailViewImageView: View {
             GradientBackgroundView()
                 .frame(height: 265)
             
-            Image(watch.image)
+            Image(Watch.getImageString(watch: watch))
                 .resizable()
                 .scaledToFit()
                 .frame(width: 208, height: 352)

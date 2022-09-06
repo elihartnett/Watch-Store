@@ -43,7 +43,7 @@ struct WatchBandOptionsView: View {
             }
         }
         .onAppear {
-            (watchBands, moreAvailable) = Watch.getBandImages(watchBandType: watch.bandType, limit: limit)
+            (watchBands, moreAvailable) = Watch.getBandImages(bandType: watch.bandType, limit: limit)
         }
     }
 }

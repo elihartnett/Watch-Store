@@ -10,17 +10,16 @@ import SwiftUI
 struct WatchCardGridView: View {
     
     @ObservedObject var watch: Watch
-    let watchTopOffset: CGFloat = 40
     
     var body: some View {
         
         VStack (spacing: 7) {
             
-            Image(watch.image)
+            Image(Watch.getImageString(watch: watch))
                 .resizable()
                 .frame(width: 129, height: 214)
             
-            WatchPriceView(price: watch.price)
+            WatchPriceView(price: watch.basePrice)
             
             WatchTitleView(caseType: watch.caseType)
             
@@ -29,19 +28,16 @@ struct WatchCardGridView: View {
             WatchBandOptionsView(watch: watch, limit: 3)
 
             AddToCartView(watch: watch)
-                .padding()
+                .padding(.top)
         }
         .overlay(alignment: .topTrailing, content: {
             FavoriteWatchView(watch: watch)
-                .frame(width: 29, height: 29)
-                .padding(5)
+                .frame(width: 20, height: 20)
         })
+        .padding()
         .background {
             GradientBackgroundView()
         }
-        .frame(height: 290)
-        .padding(.top, watchTopOffset + 30)
-        .padding()
     }
 }
 

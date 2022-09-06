@@ -17,8 +17,8 @@ struct AddToCartView: View {
         Button {
             storeModel.cart.append(watch)
         } label:{
-            Color(Constants.Color.addToCart)
-                .frame(width: 152, height: 45)
+            Color(Constants.Color.addToCart.rawValue)
+                .frame(height: 45)
                 .cornerRadius(10)
                 .overlay {
                     Text("Add to cart")

@@ -10,13 +10,16 @@ import SwiftUI
 struct WatchTitleView: View {
     
     let caseType: WatchCaseType
+    var alignment = TextAlignment.center
     
     var body: some View {
         
         Text(Watch.getCaseTitle(caseType: caseType))
-        .fontWeight(.bold)
-        .lineLimit(1)
-        .minimumScaleFactor(0.75)
+            .font(.headline)
+            .fontWeight(.bold)
+            .lineLimit(2)
+            .multilineTextAlignment(alignment)
+            .fixedSize(horizontal: false, vertical: true)
     }
 }
 

@@ -27,6 +27,6 @@ struct WatchPriceView: View {
 
 struct WatchPriceView_Previews: PreviewProvider {
     static var previews: some View {
-        WatchPriceView(price: dev.watch.price)
+        WatchPriceView(price: dev.watch.basePrice)
     }
 }

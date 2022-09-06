@@ -9,27 +9,29 @@ import SwiftUI
 
 struct DetailViewCaseSizeView: View {
     
-    let watch: Watch
+    @ObservedObject var watch: Watch
+    let size: WatchCaseSize
     
     var body: some View {
         
         Button {
-#warning("link to watch size and thicken border")
+            watch.caseSize = size
         } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
-                    .stroke(.black)
+                    .stroke(.black, style: StrokeStyle(lineWidth: watch.caseSize == size ? 3 : 1))
                 
                 HStack {
                     VStack(alignment: .leading) {
-                        Text("41 mm")
+                        Text("\(size.rawValue) mm")
                             .bold()
-                        Text("Fits 130-200mm wrists.")
+                        
+                        Text("Fits \(size == .regular ? "130-200" : "140-220") wrists.")
                     }
                     
                     Spacer()
                     
-                    Text("$") + Text(watch.price.description)
+                    Text("$") + Text("\((watch.basePrice + (size == .regular ? 0 : 30)).formatted())")
                         .font(.title)
                         .bold()
                 }
@@ -42,6 +44,6 @@ struct DetailViewCaseSizeView: View {
 
 struct DetailViewCaseSizeView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailViewCaseSizeView(watch: dev.watch)
+        DetailViewCaseSizeView(watch: dev.watch, size: .regular)
     }
 }

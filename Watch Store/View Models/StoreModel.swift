@@ -9,7 +9,19 @@ import Foundation
 
 class StoreModel: ObservableObject {
     
-    @Published var watches = [Watch(caseType: .starlightAluminum, bandType: .braided(color: .blue), image: Constants.Image.Watch.placeHolder1, price: 399), Watch(caseType: .midnightAluminum, bandType: .solo(color: .pink), image: Constants.Image.Watch.placeHolder2, price: 399), Watch(caseType: .midnightAluminum, bandType: .nike(color: .black), image: Constants.Image.Watch.placeHolder3, price: 399), Watch(caseType: .starlightAluminum, bandType: .sport(color: .red), image: Constants.Image.Watch.placeHolder4, price: 399), Watch(caseType: .midnightAluminum, bandType: .leather(color: .black), image: Constants.Image.Watch.placeHolder5, price: 399), Watch(caseType: .midnightAluminum, bandType: .stainlessSteel(color: .black), image: Constants.Image.Watch.placeHolder6, price: 399)]
+    @Published var watches = [
+        Watch(caseType: .aluminum(color: .starlight), bandType: .braided(color: .blue), basePrice: 399),
+                              
+        Watch(caseType: .aluminum(color: .midnight), bandType: .solo(color: .pink), basePrice: 399),
+      
+        Watch(caseType: .aluminum(color: .midnight), bandType: .nike(color: .black), basePrice: 399),
+      
+        Watch(caseType: .aluminum(color: .midnight), bandType: .sport(color: .red), basePrice: 399),
+      
+        Watch(caseType: .aluminum(color: .midnight), bandType: .leather(color: .black), basePrice: 399),
+      
+        Watch(caseType: .stainlessSteel(color: .graphite), bandType: .milanese(color: .black), basePrice: 399)
+    ]
     
     @Published var cart: [Watch] = []
 }

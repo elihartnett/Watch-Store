@@ -11,6 +11,8 @@ struct HomeView: View {
     
     @EnvironmentObject var storeModel: StoreModel
     @State var viewType: ViewType = .list
+    @State var gridItemWidth = UIScreen.main.bounds.size.width
+    @State var adaptiveColumns = [GridItem(.adaptive(minimum: UIScreen.main.bounds.width - 40))]
     let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
     @State var time = 0.0
     @State var launching = true
@@ -22,26 +24,11 @@ struct HomeView: View {
             
             ScrollView {
                 
-                VStack(alignment: .leading) {
+                LazyVGrid(columns: adaptiveColumns) {
                     
-                    switch viewType {
+                    ForEach(storeModel.watches) { watch in
                         
-                    case .list:
-                        ForEach(storeModel.watches) { watch in
-                            NavigationLink(value: Route.detail(watch: watch)) {
-                                WatchCardListView(watch: watch)
-                                    .padding()
-                            }
-                        }
-                    case .grid:
-                        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
-                            ForEach(storeModel.watches) { watch in
-                                NavigationLink(value: Route.detail(watch: watch)) {
-                                    WatchCardGridView(watch: watch)
-                                        .padding()
-                                }
-                            }
-                        }
+                        WatchCardView(watch: watch, viewType: viewType, gridItemWidth: gridItemWidth)
                     }
                 }
                 .foregroundColor(.primary)
@@ -72,22 +59,33 @@ struct HomeView: View {
                 }
             }
             .navigationTitle("Discover")
-        }
-        .overlay {
-            LottieView(lottieFile: "logoAnimation")
-                .ignoresSafeArea()
-                .onReceive(timer) { _ in
-                    time += 0.1
-                    if time >= 3.5 {
-                        withAnimation {
-                            launching = false
-                        }
-                        timer.upstream.connect().cancel()
-                    }
+            .onChange(of: viewType) { _ in
+                switch viewType {
+                case .list:
+                    gridItemWidth = UIScreen.main.bounds.size.width
+                case .grid:
+                    gridItemWidth = (UIScreen.main.bounds.size.width - (20*3)) / 2
                 }
-                .background(.white)
-                .opacity(launching ? 1 : 0)
+                withAnimation {
+                    adaptiveColumns = [GridItem(.adaptive(minimum: gridItemWidth))]
+                }
+            }
         }
+//        .overlay {
+//            LottieView(lottieFile: "logoAnimation")
+//                .ignoresSafeArea()
+//                .onReceive(timer) { _ in
+//                    time += 0.1
+//                    if time >= 3.5 {
+//                        withAnimation {
+//                            launching = false
+//                        }
+//                        timer.upstream.connect().cancel()
+//                    }
+//                }
+//                .background(.white)
+//                .opacity(launching ? 1 : 0)
+//        }
     }
 }
 

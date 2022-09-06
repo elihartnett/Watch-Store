@@ -11,9 +11,13 @@ import SwiftUI
 class DeveloperPreview {
     
     static let instance = DeveloperPreview()
-    private init() {}
+    let storeModel: StoreModel
+    let watch: Watch
     
-    let watch = Watch(caseType: .starlightAluminum, bandType: .braided(color: .blue), image: Constants.Image.Watch.placeHolder1, price: 399)
+    private init() {
+        self.storeModel = StoreModel()
+        self.watch = storeModel.watches.first!
+    }
 }
 
 extension PreviewProvider {
