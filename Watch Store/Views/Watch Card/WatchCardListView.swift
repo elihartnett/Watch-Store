@@ -37,8 +37,6 @@ struct WatchCardListView: View {
                 WatchBandTitleView(bandType: watch.bandType)
                 
                 Spacer()
-                                
-                AddToCartView(watch: watch)
             }
         }
         .padding()

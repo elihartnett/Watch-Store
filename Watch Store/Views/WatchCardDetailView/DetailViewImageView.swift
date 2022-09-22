@@ -29,6 +29,9 @@ struct DetailViewImageView: View {
             FavoriteWatchView(watch: watch)
                 .frame(width: 38, height: 38)
                 .padding()
+                .accessibilityLabel("Favorite watch")
+                .accessibilityAddTraits(.isButton)
+                .accessibilityRemoveTraits(.isImage)
         }
     }
 }

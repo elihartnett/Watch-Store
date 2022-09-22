@@ -29,6 +29,9 @@ struct HomeView: View {
                     ForEach(storeModel.watches) { watch in
                         
                         WatchCardView(watch: watch, viewType: viewType, gridItemWidth: gridItemWidth)
+                            .accessibilityElement(children: .ignore)
+                            .accessibility(label: Text("Watch"))
+                            .accessibilityAddTraits(AccessibilityTraits.isButton)
                     }
                 }
                 .foregroundColor(.primary)
@@ -56,6 +59,9 @@ struct HomeView: View {
                                 }
                             }
                         }
+                        .accessibilityElement(children: .ignore)
+                        .accessibility(label: Text(viewType == .list ? "List" : "Grid"))
+                        .accessibilityAddTraits(AccessibilityTraits.isButton)
                 }
             }
             .navigationTitle("Discover")

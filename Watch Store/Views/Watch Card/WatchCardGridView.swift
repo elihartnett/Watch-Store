@@ -26,9 +26,6 @@ struct WatchCardGridView: View {
             WatchBandTitleView(bandType: watch.bandType)
             
             WatchBandOptionsView(watch: watch, limit: 3)
-
-            AddToCartView(watch: watch)
-                .padding(.top)
         }
         .overlay(alignment: .topTrailing, content: {
             FavoriteWatchView(watch: watch)

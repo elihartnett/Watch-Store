@@ -44,7 +44,6 @@ struct WatchCardView: View {
                 }
             }
             .padding()
-            
         }
     }
 }

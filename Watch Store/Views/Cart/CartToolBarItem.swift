@@ -32,6 +32,9 @@ struct CartToolBarItem: View {
                         CartView()
                     }
             }
+            .accessibilityElement(children: .ignore)
+            .accessibility(label: Text("Cart"))
+            .accessibilityAddTraits(AccessibilityTraits.isModal)
     }
 }
 

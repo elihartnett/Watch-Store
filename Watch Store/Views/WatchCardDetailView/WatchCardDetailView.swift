@@ -21,10 +21,13 @@ struct WatchCardDetailView: View {
             VStack(alignment: .leading, spacing: 10) {
                 
                 DetailViewImageView(watch: watch)
+                    .accessibility(label: Text("Watch image"))
+                    .accessibilityAddTraits(AccessibilityTraits.isImage)
                 
                 Text("\(Watch.getCaseTitle(caseType: watch.caseType)) With \(Watch.getBandTitle(bandType: watch.bandType))")
                     .font(.title)
                     .bold()
+                    .accessibilityHeading(.h1)
                 
                 HStack {
                     Image(systemName: "star.fill")
@@ -33,12 +36,18 @@ struct WatchCardDetailView: View {
                     Text("5.0 ").bold() + Text("(999 Reviews)")
                         .fontWeight(.light)
                 }
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel("999 reviews with an average of 5 stars.")
                 
-                Text(Watch.getCaseDescription(caseType: watch.caseType))
-                    .fontWeight(.light)
-                
-                Text(Watch.getBandDescription(bandType: watch.bandType))
-                    .fontWeight(.light)
+                Group {
+                    Text(Watch.getCaseDescription(caseType: watch.caseType))
+                        .fontWeight(.light)
+                    
+                    Text(Watch.getBandDescription(bandType: watch.bandType))
+                        .fontWeight(.light)
+                }
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel("Description")
                 
                 Group {
                     Text("Band Colors")
@@ -49,6 +58,9 @@ struct WatchCardDetailView: View {
                     
                     WatchBandOptionsView(watch: watch, size: CGSize(width: 32, height: 32))
                 }
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel(Text("Band color options"))
+                .accessibilityHeading(.h2)
                 
                 Group {
                     Text("Case Sizes")
@@ -61,6 +73,9 @@ struct WatchCardDetailView: View {
                     
                     DetailViewCaseSizeView(watch: watch, size: .large)
                 }
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel(Text("Case size options"))
+                .accessibilityHeading(.h2)
                 
                 Group {
                     Text("Connectivity")
@@ -75,11 +90,17 @@ struct WatchCardDetailView: View {
                         DetailViewConnectivityView(watch: watch, connectivity: .gpsAndCellular)
                     }
                 }
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel(Text("Connectivity options"))
+                .accessibilityHeading(.h2)
                 
                 AddToCartView(watch: watch)
                     .padding()
                 
                 DetailViewAppleCareView()
+                    .accessibilityElement(children: .ignore)
+                    .accessibilityLabel(Text("Apple care description"))
+                    .accessibilityHeading(.h2)
             }
             .padding(.horizontal)
         }
